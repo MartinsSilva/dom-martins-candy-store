@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" href="resources/img/logo.svg">
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/style.css">
+  <link rel="stylesheet" href="resources/css/all.css">
+  <title>Dom Martins - Loja de doces</title>
+  <style>
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg px-4">
+      <a class="navbar-brand" href="#"><img src="resources/img/logo.svg" alt=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNav">
+        <span class="toggler-icon"><i class="fas fa-bars"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="myNav">
+        <ul class="navbar-nav mx-auto text-capitalize">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#">sobre</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">loja</a>
+          </li>
+        </ul>
+        <div class="nav-info-items d-none d-lg-flex ">
+          <div class="nav-info align-items-center d-flex justify-content-between mx-lg-5">
+            <span class="info-icon mx-lg-3"><i class="fas fa-phone"></i></span>
+            <p class="mb-0">+ 244 936956559</p>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- end of nav -->
+
+    <!-- banner  -->
+    <div class="container-fluid">
+      <div class="row max-height justify-content-center align-items-center">
+        <div class="col-10 mx-auto banner text-center">
+          <h1 class="text-capitalize">
+            bem-vindo ao <strong class="banner-title ">Dom Martins Doces</strong>
+          </h1>
+          <a href="#store" class="btn banner-link text-uppercase my-2">explore</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <!-- header -->
+
+  <!-- store -->
+  <div id="root">
+    <section id="store" class="store py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-10 mx-auto col-sm-6 text-center">
+            <h1 class="text-capitalize">Nossa
+              <strong class="banner-title ">loja</strong>
+            </h1>
+          </div>
+        </div>
+        <!-- end of section title -->
+
+        <!--filter buttons -->
+        <div class="row">
+          <div class=" col-lg-8 mx-auto d-flex justify-content-around my-2 sortBtn flex-wrap">
+            <a href="#" class="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2" data-filter="all">Tudo</a>
+            <a href="#" class="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2" data-filter="cakes">Bolinhos</a>
+            <a href="#" class="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2" data-filter="cupcakes">Bolos</a>
+            <a href="#" class="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2" data-filter="sweets">Doces</a>
+            <a href="#" class="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2" data-filter="doughnuts">Gelados</a>
+          </div>
+        </div>
+        <!--end filter buttons -->
+
+        <!-- search box -->
+        <div class="row">
+          <div class="col-10 mx-auto col-md-6">
+            <form>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend ">
+                  <span class="input-group-text search-box" id="search-icon">
+                    <i class="fas fa-search"></i></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder='procure pelo seu bolo....' id="search-item">
+                </div>
+              </form>
+            </div>
+          </div>
+          <!--end of filter buttons -->
+
+          <!-- store  items-->
+          <div class="row" class="store-items" id="store-items" >
+              <div class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item sweets" data-item="sweets" v-for="product in products">
+                <div class="card ">
+                  <div class="img-container">
+                    <img v-bind:src=" 'resources/img/' + product.toImage" class="card-img-top store-img" alt="">
+                    <span class="store-item-icon">
+                      <i class="fas fa-shopping-cart"></i>
+                    </span>
+                  </div>
+                  <div class="card-body">
+                    <div class="card-text d-flex justify-content-between text-capitalize">
+                      <h5 id="store-item-name">{{ product.name }}</h5>
+                      <h5 class="store-item-value">kz <strong id="store-item-price" class="font-weight-bold">{{ product.price }}</strong></h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </section>
+      </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="resources/js/app.js"></script>
+</body>
+</html>
