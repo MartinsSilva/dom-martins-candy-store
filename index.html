@@ -83,22 +83,23 @@
         <!-- search box -->
         <div class="row">
           <div class="col-10 mx-auto col-md-6">
-            <form>
+            
               <div class="input-group mb-3">
-                <div class="input-group-prepend ">
+                <button class="input-group-prepend " @click="resultadobusca()">
                   <span class="input-group-text search-box" id="search-icon">
-                    <i class="fas fa-search"></i></span>
-                  </div>
-                  <input type="text" class="form-control" placeholder='procure pelo seu bolo....' id="search-item">
+                    <i class="fas fa-search"></i>
+                  </span>
+                  </button>
+                  <input type="text" class="form-control" v-model="busca" placeholder='procure pelo seu bolo....' id="search-item">
                 </div>
-              </form>
+              
             </div>
           </div>
           <!--end of filter buttons -->
 
           <!-- store  items-->
           <div class="row" class="store-items" id="store-items" >
-              <div class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item sweets" data-item="sweets" v-for="product in products">
+              <div class="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item sweets" data-item="sweets" v-for="(product,index) in resultbuscabtn" :key="index">
                 <div class="card ">
                   <div class="img-container">
                     <img v-bind:src=" 'resources/img/' + product.toImage" class="card-img-top store-img" alt="">
@@ -118,7 +119,8 @@
         </section>
       </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+    <script src="./vue.js"></script>
     <script src="resources/js/app.js"></script>
 </body>
 </html>

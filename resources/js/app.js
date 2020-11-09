@@ -1,6 +1,8 @@
 var app = new Vue({
 	el: '#root',
 	data: {
+		busca : '',
+		resultbuscabtn:[],
 		products: [
 			{
 				name: 'Ice Cream',
@@ -39,5 +41,18 @@ var app = new Vue({
 				description: "lorem lorem lorem"
 			}			
 		]
-	}
+	},
+	methods : {
+		resultadobusca : function(){
+			this.resultbuscabtn = this.products
+			if (this.busca =="" || this.busca==" ") {
+				this.resultbuscabtn = this.products
+			}else{
+				this.resultbuscabtn = this.products.filter(product => product.name == this.busca)
+			}
+		}
+	},
+	created(){
+		this.resultadobusca()
+	},
 })
